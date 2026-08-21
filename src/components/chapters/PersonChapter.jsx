@@ -51,7 +51,8 @@ const PersonChapter = () => {
             <p className="eyebrow mb-3">Education</p>
             <p className="font-serif text-xl text-[var(--dark)] mb-1">K.J. Somaiya School of Engineering</p>
             <p className="text-sm text-[var(--dark)]/55 mb-2">B.Tech in Computer Engineering</p>
-            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40">2023 — 2027</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40 mb-1">2023 — 2027</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40">CGPA 8.58/10</p>
           </div>
         </motion.div>
 

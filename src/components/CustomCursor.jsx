@@ -85,6 +85,7 @@ const CustomCursor = () => {
         width: big ? 68 : isLink ? 30 : 9,
         height: big ? 68 : isLink ? 30 : 9,
         background: 'var(--dark)',
+        boxShadow: '0 0 0 1px rgba(255, 249, 243, 0.4)',
         opacity: big ? 0.94 : isLink ? 0.9 : 0.85,
         transition: 'width 0.28s var(--ease-out), height 0.28s var(--ease-out), opacity 0.28s var(--ease-out)',
         willChange: 'transform',

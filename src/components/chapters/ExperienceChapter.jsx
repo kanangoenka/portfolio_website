@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 const easeOut = [0.16, 1, 0.3, 1];
 
 const notes = [
-  { tag: 'Medical Imaging', text: 'Built a browser-based medical imaging viewer for reviewing patient cases.', rotate: -2 },
-  { tag: 'Full-Stack Development', text: 'Worked across the stack on a production healthcare platform.', rotate: 1.5 },
-  { tag: 'Patient Workflows', text: 'Built upload and processing workflows for patient cases.', rotate: -1 },
-  { tag: 'Role-Based Access', text: 'Implemented role-based access for different staff roles.', rotate: 2 },
+  { tag: 'Medical Imaging', text: 'Built a browser-based medical-imaging viewer with VTK to visualize patient scan data.', rotate: -2 },
+  { tag: 'Full-Stack Development', text: 'Built and deployed the platform on React.js and TypeScript, with Node.js, Express.js, and REST APIs on the backend.', rotate: 1.5 },
+  { tag: 'Patient Workflows', text: 'Integrated upload, processing, visualization, and report-delivery flows for patient case files.', rotate: -1 },
+  { tag: 'Role-Based Worklists', text: 'Powered multi-tier user workflows with role-based worklists across the platform.', rotate: 2 },
 ];
 
 const ExperienceChapter = () => {
@@ -53,10 +53,10 @@ const ExperienceChapter = () => {
           className="md:col-span-8"
         >
           <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[var(--dark)] leading-tight mb-4">
-            Software Developer Intern
+            Software Engineer Intern
           </h3>
           <p className="text-[15px] text-[var(--brown)] font-semibold mb-1">MedMarvel Software Solutions Pvt. Ltd.</p>
-          <p className="text-sm text-[var(--dark)]/50 mb-1">Pune, Maharashtra</p>
+          <p className="text-sm text-[var(--dark)]/50 mb-1">Pune/Pimpri-Chinchwad · On-site</p>
           <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40">May 2026 — July 2026</p>
         </motion.div>
       </div>

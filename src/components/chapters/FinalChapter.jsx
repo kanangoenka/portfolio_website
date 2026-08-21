@@ -5,11 +5,16 @@ import CoffeeBeans from '../magazine/CoffeeBeans';
 
 const easeOut = [0.16, 1, 0.3, 1];
 
+// Resume "download" opens Kanan's Google Drive folder directly — a
+// plain external link, so updating the resume there needs no code or
+// site change. See HeroChapter for the matching button.
+const RESUME_DRIVE_URL = 'https://drive.google.com/drive/folders/1xdfQ0hFgEuTqJGr6OQyoEEAug2CRMT2k?usp=sharing';
+
 const links = [
-  { label: 'Email', value: 'kanangoenka@gmail.com', href: 'mailto:kanangoenka@gmail.com' },
+  { label: 'Email', value: 'kanangoenka2@gmail.com', href: 'mailto:kanangoenka2@gmail.com' },
   { label: 'GitHub', value: 'github.com/kanangoenka', href: 'https://github.com/kanangoenka' },
-  { label: 'LinkedIn', value: 'linkedin.com/in/kanangoenka', href: 'https://linkedin.com/in/kanangoenka' },
-  { label: 'Resume', value: 'Download PDF', href: '/resume.pdf' },
+  { label: 'LinkedIn', value: 'linkedin.com/in/kanan-goenka', href: 'https://www.linkedin.com/in/kanan-goenka/' },
+  { label: 'Resume', value: 'View Resume', href: RESUME_DRIVE_URL },
 ];
 
 const FinalChapter = () => {

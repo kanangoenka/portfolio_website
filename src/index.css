@@ -224,6 +224,79 @@
 }
 
 /* ============================================================
+   COVER STAMP BUTTON (landing-page entry interaction)
+   ============================================================ */
+.stamp-btn {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 9999px;
+  background: var(--cream);
+  color: var(--dark);
+  border: 1.5px solid transparent;
+  isolation: isolate;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.4s var(--ease-soft), transform 0.25s var(--ease-out);
+}
+@media (min-width: 640px) {
+  .stamp-btn {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+.stamp-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--accent);
+  transform: scale(0);
+  transition: transform 0.45s var(--ease-soft);
+  z-index: -1;
+}
+.stamp-btn:hover::before,
+.stamp-btn:focus-visible::before {
+  transform: scale(1);
+}
+.stamp-btn:hover,
+.stamp-btn:focus-visible {
+  color: var(--cream);
+}
+.stamp-btn:active {
+  transform: scale(0.93);
+}
+
+.stamp-ring {
+  position: absolute;
+  inset: -11px;
+  border-radius: 9999px;
+  border: 1px dashed rgba(255, 249, 243, 0.3);
+  animation: stampSpin 26s linear infinite;
+  pointer-events: none;
+}
+.stamp-halo {
+  position: absolute;
+  inset: -22px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(184, 117, 58, 0.4), transparent 70%);
+  animation: stampPulse 2.8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+@keyframes stampSpin {
+  to { transform: rotate(360deg); }
+}
+@keyframes stampPulse {
+  0%, 100% { opacity: 0.45; transform: scale(0.9); }
+  50% { opacity: 0.85; transform: scale(1.06); }
+}
+
+/* ============================================================
    PAPER / GLASS CARDS
    ============================================================ */
 .card {

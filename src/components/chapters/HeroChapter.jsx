@@ -8,6 +8,11 @@ import { scrollToId, useLenis } from '../../lib/LenisContext';
 
 const easeOut = [0.16, 1, 0.3, 1];
 
+// Resume "download" opens Kanan's Google Drive folder directly — a
+// plain external link, so updating the resume there needs no code or
+// site change. See FinalChapter for the matching link.
+const RESUME_DRIVE_URL = 'https://drive.google.com/drive/folders/1xdfQ0hFgEuTqJGr6OQyoEEAug2CRMT2k?usp=sharing';
+
 const HeroChapter = () => {
   const ref = useRef(null);
   const lenis = useLenis();
@@ -87,7 +92,7 @@ const HeroChapter = () => {
             <FiArrowRight className="w-4 h-4" />
           </MagneticButton>
           <MagneticButton
-            href="/resume.pdf"
+            href={RESUME_DRIVE_URL}
             target="_blank"
             rel="noopener noreferrer"
             data-cursor="link"

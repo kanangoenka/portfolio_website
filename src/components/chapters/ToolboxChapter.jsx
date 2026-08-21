@@ -5,12 +5,12 @@ import { FiBook, FiMonitor, FiServer, FiDatabase, FiBookOpen, FiTool, FiPlus } f
 const easeOut = [0.16, 1, 0.3, 1];
 
 const objects = [
-  { id: 'notebook', label: 'Notebook', icon: FiBook, rotate: -2, items: ['Java', 'JavaScript', 'Python', 'HTML5', 'CSS3', 'PHP'] },
-  { id: 'laptop', label: 'Laptop', icon: FiMonitor, rotate: 1.5, items: ['React.js', 'Bootstrap', 'Tailwind CSS'] },
-  { id: 'server', label: 'Server', icon: FiServer, rotate: -1, items: ['Node.js', 'Express.js'] },
+  { id: 'notebook', label: 'Notebook', icon: FiBook, rotate: -2, items: ['Java', 'JavaScript', 'TypeScript', 'Python', 'SQL', 'PHP', 'HTML5', 'CSS3'] },
+  { id: 'laptop', label: 'Laptop', icon: FiMonitor, rotate: 1.5, items: ['React.js', 'TypeScript', 'Tailwind CSS', 'Bootstrap 5', 'Responsive UI'] },
+  { id: 'server', label: 'Server', icon: FiServer, rotate: -1, items: ['Node.js', 'Express.js', 'REST APIs', 'Socket.IO', 'WebSockets', 'Authentication', 'Role-based Access'] },
   { id: 'database', label: 'Database', icon: FiDatabase, rotate: 2, items: ['MongoDB', 'MySQL', 'PostgreSQL'] },
-  { id: 'small-notebook', label: 'Small Notebook', icon: FiBookOpen, rotate: -1.5, items: ['NLTK', 'NumPy', 'Pandas', 'Matplotlib', 'Scikit-learn', 'PyTorch'] },
-  { id: 'tools', label: 'Tools', icon: FiTool, rotate: 1, items: ['Git', 'GitHub', 'REST APIs', 'Socket.io', 'Docker', 'Figma', 'Agile/Scrum'] },
+  { id: 'small-notebook', label: 'Small Notebook', icon: FiBookOpen, rotate: -1.5, items: ['LLM APIs', 'PyTorch', 'Scikit-learn', 'Pandas', 'NumPy', 'NLTK', 'Matplotlib'] },
+  { id: 'tools', label: 'Tools', icon: FiTool, rotate: 1, items: ['Git', 'GitHub', 'Docker', 'VTK', 'Figma'] },
 ];
 
 const ToolboxChapter = () => {
