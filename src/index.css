@@ -297,6 +297,41 @@
 }
 
 /* ============================================================
+   PROJECT TAG PILLS (Work chapter)
+   ============================================================ */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--dark-60);
+  border: 1px solid var(--dark-08);
+  transition: transform 0.3s var(--ease-out);
+}
+.tag-pill:hover {
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   SCROLL PROGRESS — a thin "coffee fill" bar tracking scroll,
+   tying the sections together into one continuous read.
+   ============================================================ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--light-coffee), var(--accent) 55%, var(--brown));
+  z-index: 200;
+  pointer-events: none;
+}
+
+/* ============================================================
    PAPER / GLASS CARDS
    ============================================================ */
 .card {

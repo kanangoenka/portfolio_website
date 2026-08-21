@@ -9,6 +9,7 @@ export const projects = [
     category: 'Healthcare / Full Stack',
     tagline: 'Centralized Healthcare Management System',
     tags: ['MERN', 'Healthcare'],
+    year: '2025–2026',
     pattern: 'medical',
     accent: '#B8753A',
     idea:
@@ -33,6 +34,7 @@ export const projects = [
     category: 'E-Commerce / Full Stack',
     tagline: 'Electronics E-Commerce Platform',
     tags: ['PHP', 'MySQL', 'E-Commerce'],
+    year: '2025',
     pattern: 'circuit',
     accent: '#6F4E37',
     idea:
@@ -57,6 +59,7 @@ export const projects = [
     category: 'AI / Product',
     tagline: 'AI-Powered Itinerary Generation',
     tags: ['Python', 'AI', 'LLM'],
+    year: '2026',
     pattern: 'route',
     accent: '#68735C',
     idea:

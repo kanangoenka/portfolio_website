@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { LenisProvider } from './lib/LenisContext';
 import CustomCursor from './components/CustomCursor';
+import ScrollProgress from './components/ScrollProgress';
 import Cover from './components/magazine/Cover';
 import MagazineNav from './components/magazine/MagazineNav';
 import HeroChapter from './components/chapters/HeroChapter';
@@ -34,6 +35,7 @@ function App() {
 
         {entered && (
           <>
+            <ScrollProgress />
             <MagazineNav />
             <main>
               <HeroChapter />

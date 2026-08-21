@@ -54,19 +54,19 @@ const DeskObject = ({ obj, index, isOpen, onToggle }) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0, rotate: obj.rotate }}
+      whileHover={{ y: -6, rotate: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.55, ease: easeOut, delay: index * 0.05 }}
-      style={{ rotate: obj.rotate }}
       className="relative"
     >
       <button
         onClick={onToggle}
         data-cursor="link"
-        className={`w-full text-left rounded-2xl border p-5 sm:p-6 transition-colors duration-300 ${
+        className={`w-full text-left rounded-2xl border p-5 sm:p-6 transition-[color,background-color,border-color,box-shadow] duration-300 ${
           isOpen
             ? 'bg-[var(--dark)] border-[var(--dark)] text-[var(--cream)]'
-            : 'bg-[var(--cream)] border-[var(--dark)]/10 text-[var(--dark)] hover:border-[var(--brown)]'
+            : 'bg-[var(--cream)] border-[var(--dark)]/10 text-[var(--dark)] hover:border-[var(--brown)] hover:shadow-[0_18px_34px_-20px_rgba(45,33,28,0.35)]'
         }`}
       >
         <div className="flex items-center justify-between mb-8">

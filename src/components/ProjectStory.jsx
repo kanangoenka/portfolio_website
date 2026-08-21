@@ -17,12 +17,20 @@ const ProjectStory = ({ project, onClose }) => {
   }, [onClose]);
 
   return (
+    // data-lenis-prevent: the site runs a global Lenis smooth-scroll
+    // instance that hijacks wheel/touch events on the whole page and
+    // redirects them to its own scroll target. Without this attribute,
+    // every scroll gesture over this modal was eaten by Lenis and
+    // applied to the (locked) page behind it instead of this panel —
+    // Lenis checks for this attribute on an event's ancestor chain and,
+    // when present, leaves that subtree to native scrolling.
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.35 }}
       className="fixed inset-0 z-[90] bg-[var(--bg)] overflow-y-auto"
+      data-lenis-prevent
     >
       <motion.div
         initial={{ y: 40, opacity: 0 }}
