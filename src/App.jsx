@@ -1,57 +1,59 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import Loader from './components/Loader';
-import ScrollProgress from './components/ScrollProgress';
+import { AnimatePresence } from 'framer-motion';
+import { LenisProvider } from './lib/LenisContext';
+import CustomCursor from './components/CustomCursor';
+import Cover from './components/magazine/Cover';
+import MagazineNav from './components/magazine/MagazineNav';
+import HeroChapter from './components/chapters/HeroChapter';
+import PersonChapter from './components/chapters/PersonChapter';
+import WorkChapter from './components/chapters/WorkChapter';
+import ExperienceChapter from './components/chapters/ExperienceChapter';
+import ToolboxChapter from './components/chapters/ToolboxChapter';
+import NotesChapter from './components/chapters/NotesChapter';
+import FinalChapter from './components/chapters/FinalChapter';
+import ProjectStory from './components/ProjectStory';
 import './App.css';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
-  const [loading, setLoading] = useState(true);
+  const [entered, setEntered] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
+  // Lock scroll behind the cover until the visitor enters the issue.
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2200);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.className = darkMode ? 'dark' : 'light';
-  }, [darkMode]);
+    document.body.style.overflow = entered ? '' : 'hidden';
+  }, [entered]);
 
   return (
-    <>
-      <AnimatePresence>
-        {loading && <Loader key="loader" />}
-      </AnimatePresence>
+    <LenisProvider>
+      <div className="relative min-h-screen bg-[var(--bg)] text-[var(--dark)] selection:bg-[var(--accent)] selection:text-[var(--cream)]">
+        <CustomCursor />
 
-      {!loading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6 }}
-          className={darkMode ? 'dark' : 'light'}
-        >
-          <ScrollProgress />
-          <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
-          <main>
-            <Hero />
-            <About />
-            <Projects />
-            <Skills />
-            <Experience />
-            <Contact />
-          </main>
-          <Footer />
-        </motion.div>
-      )}
-    </>
+        <AnimatePresence>
+          {!entered && <Cover key="cover" onEnter={() => setEntered(true)} />}
+        </AnimatePresence>
+
+        {entered && (
+          <>
+            <MagazineNav />
+            <main>
+              <HeroChapter />
+              <PersonChapter />
+              <WorkChapter onSelect={setSelectedProject} />
+              <ExperienceChapter />
+              <ToolboxChapter />
+              <NotesChapter />
+              <FinalChapter />
+            </main>
+          </>
+        )}
+
+        <AnimatePresence>
+          {selectedProject && (
+            <ProjectStory project={selectedProject} onClose={() => setSelectedProject(null)} />
+          )}
+        </AnimatePresence>
+      </div>
+    </LenisProvider>
   );
 }
 
