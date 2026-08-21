@@ -7,19 +7,16 @@ import Cover from './components/magazine/Cover';
 import MagazineNav from './components/magazine/MagazineNav';
 import HeroChapter from './components/chapters/HeroChapter';
 import PersonChapter from './components/chapters/PersonChapter';
-import WorkChapter from './components/chapters/WorkChapter';
+import MenuChapter from './components/chapters/MenuChapter';
 import ExperienceChapter from './components/chapters/ExperienceChapter';
-import ToolboxChapter from './components/chapters/ToolboxChapter';
-import NotesChapter from './components/chapters/NotesChapter';
+import DiaryChapter from './components/chapters/DiaryChapter';
 import FinalChapter from './components/chapters/FinalChapter';
-import ProjectStory from './components/ProjectStory';
 import './App.css';
 
 function App() {
   const [entered, setEntered] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(null);
 
-  // Lock scroll behind the cover until the visitor enters the issue.
+  // Lock scroll behind the cover until the visitor enters the café.
   useEffect(() => {
     document.body.style.overflow = entered ? '' : 'hidden';
   }, [entered]);
@@ -40,20 +37,13 @@ function App() {
             <main>
               <HeroChapter />
               <PersonChapter />
-              <WorkChapter onSelect={setSelectedProject} />
+              <MenuChapter />
               <ExperienceChapter />
-              <ToolboxChapter />
-              <NotesChapter />
+              <DiaryChapter />
               <FinalChapter />
             </main>
           </>
         )}
-
-        <AnimatePresence>
-          {selectedProject && (
-            <ProjectStory project={selectedProject} onClose={() => setSelectedProject(null)} />
-          )}
-        </AnimatePresence>
       </div>
     </LenisProvider>
   );

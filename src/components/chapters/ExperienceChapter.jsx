@@ -31,7 +31,7 @@ const ExperienceChapter = () => {
         transition={{ duration: 0.7, ease: easeOut }}
         className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-20"
       >
-        The Experience
+        The Owner&rsquo;s Experience
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start mb-20 md:mb-28">

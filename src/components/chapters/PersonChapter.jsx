@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import CoffeeBeans from '../magazine/CoffeeBeans';
+import Mountains from '../magazine/Mountains';
 
 const easeOut = [0.16, 1, 0.3, 1];
 
@@ -54,6 +55,12 @@ const PersonChapter = () => {
             <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40 mb-1">2023 — 2027</p>
             <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40">CGPA 8.58/10</p>
           </div>
+
+          {/* a small postcard view, tucked beside the table */}
+          <div className="relative mt-8 max-w-[220px] rounded-xl overflow-hidden border border-[var(--dark)]/10 bg-[var(--cream)] shadow-[0_10px_24px_-16px_rgba(45,33,28,0.3)] hidden sm:block">
+            <Mountains className="w-full h-16" />
+            <p className="px-3 py-2 text-[10px] tracking-widest uppercase text-[var(--dark)]/40">Wish you were here</p>
+          </div>
         </motion.div>
 
         {/* editorial visual with handwritten annotations */}
@@ -95,10 +102,10 @@ const PersonChapter = () => {
 // composition-first alternative to stock photography.
 const PortraitMark = () => (
   <svg viewBox="0 0 400 320" className="w-full h-full">
-    <circle cx="200" cy="120" r="80" fill="none" stroke="#6F4E37" strokeWidth="1.5" opacity="0.5" />
-    <path d="M90 300 Q200 190 310 300" fill="none" stroke="#6F4E37" strokeWidth="1.5" opacity="0.5" />
-    <path d="M60 300 Q200 150 340 300" fill="none" stroke="#B8753A" strokeWidth="1.5" opacity="0.35" />
-    <circle cx="200" cy="120" r="4" fill="#B8753A" />
+    <circle cx="200" cy="120" r="80" fill="none" stroke="#5C4632" strokeWidth="1.5" opacity="0.5" />
+    <path d="M90 300 Q200 190 310 300" fill="none" stroke="#5C4632" strokeWidth="1.5" opacity="0.5" />
+    <path d="M60 300 Q200 150 340 300" fill="none" stroke="#A85A32" strokeWidth="1.5" opacity="0.35" />
+    <circle cx="200" cy="120" r="4" fill="#A85A32" />
   </svg>
 );
 

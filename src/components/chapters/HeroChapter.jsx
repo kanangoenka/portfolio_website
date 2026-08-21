@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { FiArrowRight, FiDownload } from 'react-icons/fi';
 import CoffeeCup from '../magazine/CoffeeCup';
 import CoffeeBeans from '../magazine/CoffeeBeans';
+import Mountains from '../magazine/Mountains';
 import MagneticButton from '../MagneticButton';
 import { scrollToId, useLenis } from '../../lib/LenisContext';
 
@@ -23,6 +24,9 @@ const HeroChapter = () => {
 
   return (
     <section id="hero" ref={ref} className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden px-6 md:px-14 pt-24 pb-16">
+      {/* window view: mountains on the horizon, cup on the table in front */}
+      <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-[22vh] opacity-50" />
+
       {/* background layer: oversized cup, cropped bottom-right */}
       <motion.div
         style={{ y: cupY }}
@@ -88,7 +92,7 @@ const HeroChapter = () => {
             data-cursor="link"
             className="btn-primary"
           >
-            View Work
+            See the Menu
             <FiArrowRight className="w-4 h-4" />
           </MagneticButton>
           <MagneticButton

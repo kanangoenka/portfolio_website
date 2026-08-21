@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
 import CoffeeCup from '../magazine/CoffeeCup';
 import CoffeeBeans from '../magazine/CoffeeBeans';
+import Mountains from '../magazine/Mountains';
 
 const easeOut = [0.16, 1, 0.3, 1];
 
@@ -28,7 +29,7 @@ const FinalChapter = () => {
           transition={{ duration: 0.6, ease: easeOut }}
           className="eyebrow mb-6"
         >
-          Chapter 07 — Last Page
+          Chapter 06 — Customize Your Food
         </motion.p>
 
         <motion.h2
@@ -38,7 +39,7 @@ const FinalChapter = () => {
           transition={{ duration: 0.7, ease: easeOut }}
           className="font-serif text-[13vw] sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] text-[var(--dark)]/40 mb-2"
         >
-          What's next?
+          Care for anything else?
         </motion.h2>
         <motion.h3
           initial={{ opacity: 0, y: 24 }}
@@ -47,10 +48,12 @@ const FinalChapter = () => {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.08 }}
           className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.92] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-24"
         >
-          Let's build
+          Customize
           <br />
-          something.
+          your order.
         </motion.h3>
+
+        <p className="eyebrow mb-6">Your Order</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 max-w-2xl">
           {links.map((l, i) => (
@@ -64,7 +67,7 @@ const FinalChapter = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.5, ease: easeOut, delay: i * 0.06 }}
-              className="group flex items-center justify-between border-b border-[var(--dark)]/12 pb-4"
+              className="group flex items-center justify-between border-b border-dashed border-[var(--dark)]/20 pb-4"
             >
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-[var(--dark)]/40 mb-1">{l.label}</p>
@@ -76,13 +79,14 @@ const FinalChapter = () => {
         </div>
       </div>
 
-      {/* bottom composition: cup, beans, handwritten note */}
+      {/* bottom composition: cup, beans, mountains, handwritten note */}
       <div className="relative mt-24 flex items-end justify-between">
+        <Mountains className="pointer-events-none absolute -bottom-2 left-0 w-full h-20 opacity-[0.18]" />
         <span
           className="text-2xl text-[var(--brown)] rotate-[-3deg]"
           style={{ fontFamily: 'var(--font-hand)', fontWeight: 600 }}
         >
-          Thanks for reading.
+          Thanks for stopping by.
         </span>
 
         <div className="absolute -bottom-10 right-0 w-[60vw] max-w-[420px] aspect-square opacity-90 pointer-events-none">

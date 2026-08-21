@@ -5,14 +5,19 @@
    ============================================================ */
 @layer base {
   :root {
-    /* Coffee-inspired palette */
-    --bg: #F7F3EE;
-    --cream: #FFF9F3;
+    /* Mountain café palette — warm café interior meets alpine dusk.
+       --dark is intentionally left close to its old value: it's a
+       near-black espresso/wood/night-sky brown that reads correctly
+       for all three, and a long tail of box-shadows across the CSS
+       and components is hand-tuned to rgba(45,33,28,...) matching it. */
+    --bg: #F3EEE2;
+    --cream: #FFFBF2;
     --dark: #2D211C;
-    --brown: #6F4E37;
-    --light-coffee: #C9A27E;
-    --sage: #68735C;
-    --accent: #B8753A;
+    --brown: #5C4632;
+    --light-coffee: #C3A876;
+    --sage: #4F5D45;
+    --accent: #A85A32;
+    --mist: #8B968F;
 
     --dark-60: rgba(45, 33, 28, 0.6);
     --dark-40: rgba(45, 33, 28, 0.4);

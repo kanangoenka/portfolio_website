@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FiCornerDownLeft } from 'react-icons/fi';
 import CoffeeBeans from './CoffeeBeans';
+import Mountains from './Mountains';
 import MagneticButton from '../MagneticButton';
 
 const easeOut = [0.16, 1, 0.3, 1];
@@ -46,6 +47,9 @@ const Cover = ({ onEnter }) => {
         <CoffeeBeans layout="scatter" />
       </div>
 
+      {/* the view out the café window */}
+      <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-[26vh] sm:h-[22vh] opacity-30" />
+
       <div className="relative z-10 flex flex-col justify-between min-h-[100svh] px-6 md:px-14 py-8 md:py-12">
         {/* masthead */}
         <motion.div
@@ -54,8 +58,8 @@ const Cover = ({ onEnter }) => {
           transition={{ duration: 0.6, ease: easeOut }}
           className="flex items-start justify-between text-[var(--cream)]/55"
         >
-          <span className="eyebrow !text-[var(--light-coffee)]">Field Notes</span>
-          <span className="eyebrow !text-[var(--light-coffee)]">Vol. 01 · 2026</span>
+          <span className="eyebrow !text-[var(--light-coffee)]">Mountain Café</span>
+          <span className="eyebrow !text-[var(--light-coffee)]">Open Daily · 2026</span>
         </motion.div>
 
         {/* title block */}
@@ -67,7 +71,7 @@ const Cover = ({ onEnter }) => {
             className="text-2xl sm:text-3xl text-[var(--accent)] mb-2"
             style={{ fontFamily: 'var(--font-hand)', fontWeight: 600 }}
           >
-            notes on things I've built —
+            pull up a chair, look around —
           </motion.p>
 
           <motion.h1
@@ -104,7 +108,7 @@ const Cover = ({ onEnter }) => {
           className="flex flex-col sm:flex-row items-center justify-between gap-8"
         >
           <span className="hidden sm:block text-xs text-[var(--cream)]/40 max-w-[200px]">
-            Mumbai, India — open the cover to read on.
+            Mumbai, India — step inside for a look around.
           </span>
 
           <div className="flex flex-col items-center gap-3">
@@ -119,7 +123,7 @@ const Cover = ({ onEnter }) => {
                 className="stamp-btn"
                 aria-label="Enter the portfolio"
               >
-                <span className="text-[11px] font-bold tracking-[0.18em] uppercase">Enter</span>
+                <span className="text-[11px] font-bold tracking-[0.18em] uppercase">Come in</span>
                 <FiCornerDownLeft className="w-3.5 h-3.5 mt-1 opacity-70" />
               </MagneticButton>
             </div>
@@ -129,7 +133,7 @@ const Cover = ({ onEnter }) => {
           </div>
 
           <span className="hidden sm:block text-xs text-[var(--cream)]/40 max-w-[200px] text-right">
-            Issue 01 — building things with care.
+            Table for one — building things with care.
           </span>
         </motion.div>
       </div>
