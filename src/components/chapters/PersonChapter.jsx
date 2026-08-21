@@ -30,7 +30,7 @@ const PersonChapter = () => {
         transition={{ duration: 0.7, ease: easeOut }}
         className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-24"
       >
-        The Person
+        The Owner
       </motion.h2>
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-10 items-start">
@@ -102,10 +102,10 @@ const PersonChapter = () => {
 // composition-first alternative to stock photography.
 const PortraitMark = () => (
   <svg viewBox="0 0 400 320" className="w-full h-full">
-    <circle cx="200" cy="120" r="80" fill="none" stroke="#5C4632" strokeWidth="1.5" opacity="0.5" />
-    <path d="M90 300 Q200 190 310 300" fill="none" stroke="#5C4632" strokeWidth="1.5" opacity="0.5" />
-    <path d="M60 300 Q200 150 340 300" fill="none" stroke="#A85A32" strokeWidth="1.5" opacity="0.35" />
-    <circle cx="200" cy="120" r="4" fill="#A85A32" />
+    <circle cx="200" cy="120" r="80" fill="none" stroke="#3F6B52" strokeWidth="1.5" opacity="0.5" />
+    <path d="M90 300 Q200 190 310 300" fill="none" stroke="#3F6B52" strokeWidth="1.5" opacity="0.5" />
+    <path d="M60 300 Q200 150 340 300" fill="none" stroke="#D97E63" strokeWidth="1.5" opacity="0.4" />
+    <circle cx="200" cy="120" r="4" fill="#D97E63" />
   </svg>
 );
 

@@ -2,7 +2,7 @@
 // standing alongside the existing coffee-cup mark rather than
 // replacing it. Flat, two-layer SVG (no photography), cheap to
 // render, crops cleanly behind typography like CoffeeCup does.
-const Mountains = ({ className = '', mist = 'var(--mist)', near = 'var(--sage)', cap = 'var(--cream)' }) => (
+const Mountains = ({ className = '', mist = 'var(--sky)', near = 'var(--pine)', cap = 'var(--cream)' }) => (
   <svg viewBox="0 0 400 160" className={className} preserveAspectRatio="xMidYMax slice" role="presentation">
     {/* far ridge */}
     <path

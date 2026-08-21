@@ -11,7 +11,7 @@ export const projects = [
     tags: ['MERN', 'Healthcare'],
     year: '2025–2026',
     pattern: 'medical',
-    accent: '#B8753A',
+    accent: '#5B8FA8',
     idea:
       'Staying on top of preventive health and getting a straight answer to a health question usually means juggling disconnected records, apps, and advice — with no single place that actually knows your history.',
     build:
@@ -36,7 +36,7 @@ export const projects = [
     tags: ['PHP', 'MySQL', 'E-Commerce'],
     year: '2025',
     pattern: 'circuit',
-    accent: '#6F4E37',
+    accent: '#DDA53F',
     idea:
       'Shopping for electronics online means comparing specs, managing a cart, and trusting the checkout flow — all of which need to feel fast and dependable.',
     build:
@@ -61,7 +61,7 @@ export const projects = [
     tags: ['Python', 'AI', 'LLM'],
     year: '2026',
     pattern: 'route',
-    accent: '#68735C',
+    accent: '#3F6B52',
     idea:
       'Planning a trip means turning loose preferences — destination, budget, interests, constraints — into a concrete, day-by-day plan, usually across too many disconnected tools.',
     build:
@@ -85,7 +85,7 @@ export const projects = [
     tagline: 'Low-Latency Messaging Application',
     tags: ['Node.js', 'Socket.io', 'Real-Time'],
     pattern: 'chat',
-    accent: '#C9A27E',
+    accent: '#D97E63',
     idea:
       'Most web apps rely on request-response cycles that feel too slow for real conversation — messaging needs to feel instant.',
     build:

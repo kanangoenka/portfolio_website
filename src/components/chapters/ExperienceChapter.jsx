@@ -5,7 +5,7 @@ const easeOut = [0.16, 1, 0.3, 1];
 const notes = [
   { tag: 'Medical Imaging', text: 'Built a browser-based medical-imaging viewer with VTK to visualize patient scan data.', rotate: -2 },
   { tag: 'Full-Stack Development', text: 'Built and deployed the platform on React.js and TypeScript, with Node.js, Express.js, and REST APIs on the backend.', rotate: 1.5 },
-  { tag: 'Patient Workflows', text: 'Integrated upload, processing, visualization, and report-delivery flows for patient case files.', rotate: -1 },
+  { tag: 'Patient Workflows', text: 'Integrated upload, processing, visualization, and report-delivery flows for patient case files within an enterprise web application.', rotate: -1 },
   { tag: 'Role-Based Worklists', text: 'Powered multi-tier user workflows with role-based worklists across the platform.', rotate: 2 },
 ];
 

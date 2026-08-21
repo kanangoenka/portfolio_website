@@ -5,18 +5,25 @@
    ============================================================ */
 @layer base {
   :root {
-    /* Mountain café palette — warm café interior meets alpine dusk.
-       --dark is intentionally left close to its old value: it's a
-       near-black espresso/wood/night-sky brown that reads correctly
-       for all three, and a long tail of box-shadows across the CSS
-       and components is hand-tuned to rgba(45,33,28,...) matching it. */
-    --bg: #F3EEE2;
-    --cream: #FFFBF2;
+    /* Colorful mountain café palette. Sky, pine, coral and gold now
+       carry the site's identity; coffee brown is demoted to a small
+       accent (a cup, a wood-grain trim) rather than the dominant hue.
+       --dark stays close to its old value on purpose: it's a
+       near-black ink that reads correctly regardless, and a long tail
+       of box-shadows across the CSS and components is hand-tuned to
+       rgba(45,33,28,...) matching it. */
+    --bg: #FAF6EC;
+    --cream: #FFFDF8;
     --dark: #2D211C;
-    --brown: #5C4632;
-    --light-coffee: #C3A876;
+    --brown: #6B4A34;
+    --light-coffee: #C9A876;
     --sage: #4F5D45;
-    --accent: #A85A32;
+    --pine: #3F6B52;
+    --sky: #7FA8C9;
+    --coral: #D97E63;
+    --gold: #DDA53F;
+    --lavender: #9184A8;
+    --accent: #D97E63;
     --mist: #8B968F;
 
     --dark-60: rgba(45, 33, 28, 0.6);
@@ -116,6 +123,19 @@
   border-radius: 50%;
   border: 6px solid var(--brown);
   opacity: 0.08;
+}
+
+/* Thin wood-grain trim — a small, deliberate dose of "coffee brown"
+   used as a floor/counter strip, not a background wash. */
+.wood-grain {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--light-coffee) 0,
+    var(--light-coffee) 2px,
+    transparent 2px,
+    transparent 26px
+  );
+  opacity: 0.35;
 }
 
 /* Paper / notebook edge for the experience card */
@@ -280,7 +300,7 @@
   position: absolute;
   inset: -11px;
   border-radius: 9999px;
-  border: 1px dashed rgba(255, 249, 243, 0.3);
+  border: 1px dashed rgba(45, 33, 28, 0.22);
   animation: stampSpin 26s linear infinite;
   pointer-events: none;
 }
@@ -288,7 +308,7 @@
   position: absolute;
   inset: -22px;
   border-radius: 9999px;
-  background: radial-gradient(circle, rgba(184, 117, 58, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(217, 126, 99, 0.45), transparent 70%);
   animation: stampPulse 2.8s ease-in-out infinite;
   pointer-events: none;
   z-index: -1;

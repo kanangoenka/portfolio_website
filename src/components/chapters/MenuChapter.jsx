@@ -83,13 +83,13 @@ const MenuChapter = () => {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.6, delay: 0.1, ease: easeOut }}
-        className="mb-16 md:mb-20 text-sm text-[var(--dark)]/50 max-w-md"
+        className="mb-10 md:mb-14 text-sm text-[var(--dark)]/50 max-w-md"
       >
         Four dishes, one at a time. Turn the page to see the next.
       </motion.p>
 
-      <div className="relative max-w-3xl mx-auto">
-        <p className="eyebrow text-center mb-6">Mountain Café — Menu</p>
+      <div className="relative max-w-4xl mx-auto">
+        <p className="eyebrow text-center mb-5">Mountain Café — Menu</p>
 
         <div style={{ perspective: 1800 }} className="relative">
           <AnimatePresence mode="wait" custom={direction}>
@@ -112,12 +112,12 @@ const MenuChapter = () => {
                 else if (info.offset.x > 80) paginate(-1);
               }}
               data-lenis-prevent-touch
-              className="relative rounded-[28px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_30px_60px_-30px_rgba(45,33,28,0.35)] px-6 sm:px-10 md:px-14 py-10 md:py-14"
+              className="relative rounded-[28px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_30px_60px_-30px_rgba(45,33,28,0.35)] px-5 sm:px-8 md:px-10 lg:px-12 py-6 sm:py-8 md:py-9"
             >
-              <div className="flex items-start gap-5 mb-8">
+              <div className="flex items-start gap-4 mb-5">
                 <DishStamp project={project} />
                 <div className="flex-1 min-w-0 pt-1">
-                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2">
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-1.5">
                     <p className="eyebrow">{project.category}</p>
                     {project.year && (
                       <>
@@ -126,45 +126,52 @@ const MenuChapter = () => {
                       </>
                     )}
                   </div>
-                  <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[var(--dark)] tracking-[-0.01em]">
+                  <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[var(--dark)] tracking-[-0.01em]">
                     {project.name}
                   </h3>
-                  <p className="mt-2 text-[15px] text-[var(--dark)]/60 leading-relaxed">{project.tagline}</p>
+                  <p className="mt-1.5 text-[14px] sm:text-[15px] text-[var(--dark)]/60 leading-snug">{project.tagline}</p>
                 </div>
               </div>
 
-              <MenuSection number="01" label="Recipe">
-                <p>{project.idea}</p>
-                <p className="mt-3">{project.build}</p>
-              </MenuSection>
+              {/* two "pages" of the menu — Recipe on the left, Ingredients
+                  and Outcome stacked on the right — so a full project
+                  fits one view instead of one long scrolling column */}
+              <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-10 lg:gap-x-14 gap-y-5">
+                <MenuSection number="01" label="Recipe">
+                  <p>{project.idea}</p>
+                  <p className="mt-2.5">{project.build}</p>
+                </MenuSection>
 
-              <MenuSection number="02" label="Ingredients">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.stack.map((t) => (
-                    <span
-                      key={t}
-                      className="tag-pill"
-                      style={{ background: `${project.accent}14`, borderColor: `${project.accent}45` }}
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div className="flex flex-col gap-5">
+                  <MenuSection number="02" label="Ingredients">
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {project.stack.map((t) => (
+                        <span
+                          key={t}
+                          className="tag-pill"
+                          style={{ background: `${project.accent}14`, borderColor: `${project.accent}45` }}
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+                    <ul className="space-y-1.5">
+                      {project.features.map((f) => (
+                        <li key={f} className="text-[13px] sm:text-[13.5px] text-[var(--dark)]/65 leading-snug flex gap-2">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </MenuSection>
+
+                  <MenuSection number="03" label="Outcome">
+                    <p className="font-serif text-lg sm:text-xl leading-snug text-[var(--dark)]">{project.result}</p>
+                  </MenuSection>
                 </div>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
-                  {project.features.map((f) => (
-                    <li key={f} className="text-[14px] text-[var(--dark)]/65 leading-relaxed flex gap-2.5">
-                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </MenuSection>
+              </div>
 
-              <MenuSection number="03" label="Outcome">
-                <p className="font-serif text-xl sm:text-2xl leading-snug text-[var(--dark)]">{project.result}</p>
-              </MenuSection>
-
-              <div className="mt-10 pt-8 border-t border-dashed border-[var(--dark)]/15 flex flex-wrap gap-4">
+              <div className="mt-6 pt-5 border-t border-dashed border-[var(--dark)]/15 flex flex-wrap gap-3">
                 <a href={project.github} target="_blank" rel="noopener noreferrer" data-cursor="link" className="btn-outline">
                   <FiGithub className="w-4 h-4" />
                   GitHub
@@ -217,12 +224,12 @@ const MenuChapter = () => {
 };
 
 const MenuSection = ({ number, label, children }) => (
-  <div className="mb-8 md:mb-10 last:mb-0">
-    <div className="flex items-baseline gap-3 mb-3">
+  <div>
+    <div className="flex items-baseline gap-2.5 mb-2">
       <span className="text-xs font-semibold tabular-nums text-[var(--dark)]/35">{number}</span>
       <span className="eyebrow">{label}</span>
     </div>
-    <div className="text-[15px] sm:text-base text-[var(--dark)]/70 leading-relaxed">{children}</div>
+    <div className="text-[13.5px] sm:text-[14.5px] text-[var(--dark)]/70 leading-relaxed">{children}</div>
   </div>
 );
 
