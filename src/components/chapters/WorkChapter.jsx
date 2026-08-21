@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { FiArrowUpRight } from 'react-icons/fi';
-import { Coffee } from 'lucide-react';
 import { projects } from '../../data/projects';
 import ProjectVisual from '../ProjectVisual';
 import CoffeeBeans from '../magazine/CoffeeBeans';
@@ -82,7 +81,7 @@ const ProjectDivider = () => (
 );
 
 const ProjectEntry = ({ project, index, onSelect }) => {
-  const layout = index % 4;
+  const alignRight = index % 2 === 1;
 
   return (
     <motion.div
@@ -94,116 +93,83 @@ const ProjectEntry = ({ project, index, onSelect }) => {
       className="relative"
     >
       {/* The whole entry is one button — semantic, keyboard-focusable,
-          and (per the brief) it needs to read as clickable even before
-          any hover/focus happens, not just on interaction. */}
+          and it needs to read as clickable even before any hover/focus
+          happens, not just on interaction. */}
       <button
         onClick={() => onSelect(project)}
         data-cursor="view"
         data-cursor-label="View"
         className="group relative w-full text-left rounded-[28px] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent)]"
       >
-        {/* giant faint index number */}
+        {/* giant faint index number, alternating side for rhythm */}
         <span
-          className={`pointer-events-none select-none font-serif absolute z-0 text-[22vw] sm:text-[13rem] leading-none text-[var(--dark)]/[0.05] transition-colors duration-500 group-hover:text-[var(--dark)]/[0.08] ${
-            layout === 1 || layout === 3 ? 'top-[-10%] right-0' : 'top-[-8%] left-0'
+          className={`pointer-events-none select-none font-serif absolute z-0 text-[22vw] sm:text-[10rem] leading-none text-[var(--dark)]/[0.05] transition-colors duration-500 group-hover:text-[var(--dark)]/[0.08] ${
+            alignRight ? 'top-[-10%] right-0' : 'top-[-8%] left-0'
           }`}
         >
           {project.index}
         </span>
 
-        {layout === 0 && (
-          <div className="relative z-10 flex flex-col md:flex-row items-start gap-8 md:gap-14">
-            <Visual project={project} className="w-full md:w-[58%] aspect-[16/10]" />
-            <div className="w-full md:w-[42%] pt-4">
-              <Meta project={project} />
-            </div>
+        <div className="relative z-10 flex items-start gap-5 sm:gap-7">
+          <PatternStamp project={project} />
+          <div className="flex-1 min-w-0 pt-1">
+            <Meta project={project} />
           </div>
-        )}
-
-        {layout === 1 && (
-          <div className="relative z-10 flex flex-col md:flex-row-reverse items-start gap-8 md:gap-14">
-            <Visual project={project} className="w-full md:w-[54%] aspect-[4/3] md:mt-10" />
-            <div className="w-full md:w-[46%] pt-4">
-              <Meta project={project} />
-            </div>
-          </div>
-        )}
-
-        {layout === 2 && (
-          <div className="relative z-10">
-            <Visual project={project} className="w-full aspect-[21/9] mb-8" />
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-end">
-              <span className="font-serif text-lg text-[var(--dark)]/30">{project.index}</span>
-              <Meta project={project} span />
-            </div>
-          </div>
-        )}
-
-        {layout === 3 && (
-          <div className="relative z-10 flex flex-col md:flex-row items-start gap-8 md:gap-14">
-            <div className="w-full md:w-[38%] pt-4">
-              <Meta project={project} />
-            </div>
-            <Visual project={project} className="w-full md:w-[62%] aspect-[16/11] md:-mt-6" />
-          </div>
-        )}
+        </div>
       </button>
     </motion.div>
   );
 };
 
-const Visual = ({ project, className }) => (
+// The "pattern" element — previously a large rectangular block (up to
+// ~60% of the entry's width) carrying a mostly-empty gradient behind
+// sparse line art. Redesigned as a small coffee-stamp medallion: the
+// same per-project ProjectVisual line art, cropped into a warm ringed
+// circle with a tiny bean charm, sized to sit beside the title rather
+// than compete with it.
+const PatternStamp = ({ project }) => (
   <div
-    className={`relative rounded-3xl overflow-hidden border border-[var(--dark)]/10 grain shadow-[0_14px_30px_-22px_rgba(45,33,28,0.35)] transition-[transform,box-shadow] duration-500 group-hover:scale-[1.015] group-hover:shadow-[0_24px_46px_-20px_rgba(45,33,28,0.4)] ${className}`}
-    style={{ background: `linear-gradient(150deg, var(--cream) 0%, ${project.accent}16 100%)` }}
+    className="relative shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 grain shadow-[0_10px_20px_-14px_rgba(45,33,28,0.4)] transition-transform duration-500 group-hover:scale-105 group-hover:rotate-6"
+    style={{
+      background: `radial-gradient(circle at 35% 30%, ${project.accent}26, var(--cream) 72%)`,
+      borderColor: `${project.accent}40`,
+    }}
   >
     <ProjectVisual
       pattern={project.pattern}
       accent={project.accent}
-      className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105 group-hover:-translate-y-1"
+      className="absolute inset-0 w-full h-full scale-[1.8] transition-transform duration-700 group-hover:scale-[1.95]"
     />
 
-    {/* faint accent ring, tucked in the corner — echoes the site's
-        coffee-ring motif without competing with the line art */}
+    {/* inner rim, like a pressed/stamped edge */}
     <div
-      className="pointer-events-none absolute -bottom-10 -right-10 w-36 h-36 rounded-full border-[3px] opacity-[0.09]"
-      style={{ borderColor: project.accent }}
+      className="pointer-events-none absolute inset-1.5 rounded-full border"
+      style={{ borderColor: `${project.accent}30` }}
     />
 
-    {/* ticket-stub tag — small, real metadata (year/category), with a
-        tiny steam wisp that only appears on hover */}
-    <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 flex items-center gap-1.5 rounded-full bg-[var(--cream)]/90 backdrop-blur-sm border border-[var(--dark)]/10 pl-2 pr-3 py-1.5 shadow-sm transition-transform duration-400 group-hover:-translate-y-0.5">
-      <span
-        className="relative w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-        style={{ background: `${project.accent}22` }}
-      >
-        <Coffee className="w-3 h-3" style={{ color: project.accent }} />
-        {/* opacity is gated on this wrapper, not on .steam-wisp itself —
-            that class runs its own infinite keyframe animation, which
-            would otherwise fight a group-hover opacity toggle placed
-            directly on it */}
-        <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          <span className="steam-wisp" />
-        </span>
-      </span>
-      <span className="text-[11px] font-semibold tracking-wide text-[var(--dark)]/70 whitespace-nowrap">
-        {project.year || project.category.split(' / ')[0]}
-      </span>
-    </div>
-
-    {/* persistent "this opens" affordance — visible at rest (not just on
-        hover/focus), so it reads as tappable on touch devices too, and
-        brightens on hover for desktop feedback */}
-    <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 z-10 w-9 h-9 rounded-full bg-[var(--cream)]/90 backdrop-blur-sm border border-[var(--dark)]/15 flex items-center justify-center shadow-sm transition-all duration-400 group-hover:bg-[var(--dark)] group-hover:border-[var(--dark)] group-hover:scale-110 group-hover:rotate-45">
-      <FiArrowUpRight className="w-4 h-4 text-[var(--dark)]/70 transition-colors duration-400 group-hover:text-[var(--cream)]" />
-    </div>
+    {/* a single coffee bean, like a wax-seal charm on the stamp */}
+    <span className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-[var(--cream)] border border-[var(--dark)]/10 shadow-sm flex items-center justify-center">
+      <svg viewBox="0 0 24 24" className="w-2.5 h-2.5" role="presentation">
+        <ellipse cx="12" cy="12" rx="8" ry="5" fill="var(--brown)" />
+        <path d="M5 12 Q12 8 19 12" stroke="var(--dark)" strokeWidth="1.3" fill="none" opacity="0.5" />
+      </svg>
+    </span>
   </div>
 );
 
-const Meta = ({ project, span }) => (
-  <div className={span ? 'sm:col-span-2' : ''}>
-    <p className="eyebrow mb-3">{project.category}</p>
-    <h3 className="font-serif text-4xl sm:text-5xl text-[var(--dark)] tracking-[-0.01em] transition-transform duration-400 group-hover:translate-x-2">
+const Meta = ({ project }) => (
+  <div>
+    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-3">
+      <p className="eyebrow">{project.category}</p>
+      {project.year && (
+        <>
+          <span className="w-1 h-1 rounded-full bg-[var(--dark)]/25" aria-hidden="true" />
+          <span className="text-[11px] font-semibold tracking-wide text-[var(--dark)]/40">{project.year}</span>
+        </>
+      )}
+    </div>
+
+    <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[var(--dark)] tracking-[-0.01em] transition-transform duration-400 group-hover:translate-x-2">
       {project.name}
     </h3>
     <p className="mt-3 text-[15px] text-[var(--dark)]/60 leading-relaxed max-w-sm">{project.tagline}</p>
@@ -222,12 +188,15 @@ const Meta = ({ project, span }) => (
 
     {/* always-visible call to open — not hover-gated, so mobile/touch
         visitors get the same "this is clickable" cue as desktop */}
-    <div className="mt-6 flex items-center gap-2">
+    <div className="mt-6 flex items-center gap-2.5">
       <span
         className="text-[15px] text-[var(--brown)] transition-transform duration-400 group-hover:translate-x-1"
         style={{ fontFamily: 'var(--font-hand)', fontWeight: 600 }}
       >
-        brew this one →
+        brew this one
+      </span>
+      <span className="w-7 h-7 rounded-full border border-[var(--dark)]/20 flex items-center justify-center transition-all duration-400 group-hover:bg-[var(--dark)] group-hover:border-[var(--dark)] group-hover:rotate-45">
+        <FiArrowUpRight className="w-3.5 h-3.5 text-[var(--dark)]/70 transition-colors duration-400 group-hover:text-[var(--cream)]" />
       </span>
     </div>
   </div>
