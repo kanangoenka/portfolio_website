@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { FiCornerDownLeft } from 'react-icons/fi';
 import CoffeeBeans from './CoffeeBeans';
 import Mountains from './Mountains';
+import Bird from './Bird';
 import MagneticButton from '../MagneticButton';
 
 const easeOut = [0.16, 1, 0.3, 1];
@@ -52,10 +53,12 @@ const Cover = ({ onEnter }) => {
       style={{ transformOrigin: 'top center', transformPerspective: 1400 }}
       className="fixed inset-0 z-[100] overflow-hidden grain"
     >
-      {/* sunrise sky */}
+      {/* one continuous sky, sunrise to horizon — mountains and haze
+          fade into this same gradient rather than sitting on their
+          own separate band, so the whole scene reads as one painting */}
       <div
         className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, var(--sky) 0%, #F4DCB4 46%, var(--bg) 82%)' }}
+        style={{ background: 'linear-gradient(180deg, var(--sky) 0%, #F4DCB4 48%, var(--bg) 88%)' }}
       />
       <div
         className="pointer-events-none absolute top-[8%] right-[12%] w-28 h-28 sm:w-40 sm:h-40 rounded-full"
@@ -67,27 +70,15 @@ const Cover = ({ onEnter }) => {
           <Cloud top="16%" left="8%" width={110} duration={14} delay={0} />
           <Cloud top="24%" left="62%" width={80} duration={18} delay={2} opacity={0.65} />
           <Cloud top="10%" left="40%" width={60} duration={16} delay={1} opacity={0.55} />
+          <Bird top="20%" delay={2} duration={20} />
+          <Bird top="26%" delay={11} duration={24} />
         </>
       )}
 
-      {/* mountains, the view from the café window */}
-      <Mountains className="pointer-events-none absolute bottom-[16%] left-0 w-full h-[32vh] sm:h-[30vh]" />
-
-      {/* café terrace floor — a small, deliberate strip of wood */}
-      <div className="wood-grain pointer-events-none absolute bottom-0 left-0 w-full h-[16%]" />
-      <div
-        className="pointer-events-none absolute bottom-0 left-0 w-full h-[16%]"
-        style={{ background: 'linear-gradient(180deg, transparent, var(--bg) 85%)' }}
-      />
-
-      {/* café awning stripe, top edge */}
-      <div
-        className="absolute top-0 left-0 right-0 h-3 sm:h-3.5"
-        style={{
-          background:
-            'repeating-linear-gradient(115deg, var(--coral) 0 26px, var(--cream) 26px 52px, var(--pine) 52px 78px, var(--cream) 78px 104px)',
-        }}
-      />
+      {/* mountains — each ridge fades to transparent at its own base
+          (see Mountains.jsx), so they dissolve straight into the sky
+          gradient behind them instead of sitting on a separate band */}
+      <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-[42vh] sm:h-[40vh]" />
 
       <div className="absolute top-[16%] right-[10%] w-16 sm:w-20 opacity-40 hidden sm:block">
         <CoffeeBeans layout="scatter" />

@@ -4,15 +4,20 @@ import Mountains from '../magazine/Mountains';
 const easeOut = [0.16, 1, 0.3, 1];
 
 const notes = [
-  { tag: 'Medical Imaging', text: 'Built a browser-based medical-imaging viewer with VTK to visualize patient scan data.', rotate: -2 },
-  { tag: 'Full-Stack Development', text: 'Built and deployed the platform on React.js and TypeScript, with Node.js, Express.js, and REST APIs on the backend.', rotate: 1.5 },
-  { tag: 'Patient Workflows', text: 'Integrated upload, processing, visualization, and report-delivery flows for patient case files within an enterprise web application.', rotate: -1 },
-  { tag: 'Role-Based Worklists', text: 'Powered multi-tier user workflows with role-based worklists across the platform.', rotate: 2 },
+  { tag: 'Medical Imaging', text: 'Built a browser-based medical-imaging viewer with VTK to visualize patient scan data.', rotate: -2, color: 'var(--sky)' },
+  { tag: 'Full-Stack Development', text: 'Built and deployed the platform on React.js and TypeScript, with Node.js, Express.js, and REST APIs on the backend.', rotate: 1.5, color: 'var(--gold)' },
+  { tag: 'Patient Workflows', text: 'Integrated upload, processing, visualization, and report-delivery flows for patient case files within an enterprise web application.', rotate: -1, color: 'var(--pine)' },
+  { tag: 'Role-Based Worklists', text: 'Powered multi-tier user workflows with role-based worklists across the platform.', rotate: 2, color: 'var(--coral)' },
 ];
 
 const ExperienceChapter = () => {
   return (
     <section id="experience" className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden">
+      {/* the warm light over the work log */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse 55% 40% at 90% 100%, var(--gold), transparent 70%)', opacity: 0.1 }}
+      />
       <div className="coffee-ring absolute top-16 right-[10%] w-32 h-32 pointer-events-none hidden md:block" />
       <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-16 opacity-25 hidden md:block" />
 
@@ -47,7 +52,7 @@ const ExperienceChapter = () => {
           <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[var(--dark)] leading-tight mb-4">
             Software Engineer Intern
           </h3>
-          <p className="text-[15px] text-[var(--brown)] font-semibold mb-1">MedMarvel Software Solutions Pvt. Ltd.</p>
+          <p className="text-[15px] text-[var(--coral)] font-semibold mb-1">MedMarvel Software Solutions Pvt. Ltd.</p>
           <p className="text-sm text-[var(--dark)]/50 mb-1">Pune/Pimpri-Chinchwad · On-site</p>
           <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40">May 2026 — July 2026</p>
         </motion.div>
@@ -62,9 +67,9 @@ const ExperienceChapter = () => {
             whileInView={{ opacity: 1, y: 0, rotate: n.rotate }}
             viewport={{ once: true, margin: '-60px' }}
             transition={{ duration: 0.6, ease: easeOut, delay: i * 0.08 }}
-            className="paper-edge bg-[var(--cream)] border border-[var(--dark)]/8 rounded-2xl p-6 shadow-[0_10px_30px_-18px_rgba(45,33,28,0.3)]"
+            className="paper-edge bg-[var(--cream)] border border-[var(--dark)]/8 rounded-2xl p-6 shadow-[0_10px_30px_-18px_rgba(37,39,34,0.3)]"
           >
-            <p className="text-xs font-semibold uppercase tracking-widest text-[var(--brown)] mb-3">{n.tag}</p>
+            <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: n.color }}>{n.tag}</p>
             <p className="text-[14.5px] text-[var(--dark)]/70 leading-relaxed">{n.text}</p>
           </motion.div>
         ))}

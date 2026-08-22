@@ -29,6 +29,12 @@ const statements = [
 const DiaryChapter = () => {
   return (
     <section id="diary" className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden">
+      {/* a quiet reading-nook corner */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse 55% 40% at 10% 100%, var(--lavender), transparent 70%)', opacity: 0.12 }}
+      />
+
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -50,7 +56,7 @@ const DiaryChapter = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: easeOut }}
           style={{ rotate: '-0.3deg' }}
-          className="relative rounded-[24px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_40px_70px_-40px_rgba(45,33,28,0.4)] overflow-hidden"
+          className="relative rounded-[24px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_40px_70px_-40px_rgba(37,39,34,0.4)] overflow-hidden"
         >
         <PaperClip className="pointer-events-none absolute -top-5 left-[46%] sm:left-1/2 -translate-x-1/2 z-20 w-9 h-14 sm:w-10 sm:h-16" />
 
@@ -105,7 +111,7 @@ const DiaryChapter = () => {
                   viewport={{ once: true, margin: '-60px' }}
                   transition={{ duration: 0.55, ease: easeOut, delay: i * 0.08 }}
                   style={{ rotate: `${s.rotate}deg` }}
-                  className={`relative max-w-[240px] bg-[var(--bg)] border border-[var(--dark)]/8 rounded-lg px-5 py-5 shadow-[0_10px_22px_-16px_rgba(45,33,28,0.35)] ${s.align}`}
+                  className={`relative max-w-[240px] bg-[var(--bg)] border border-[var(--dark)]/8 rounded-lg px-5 py-5 shadow-[0_10px_22px_-16px_rgba(37,39,34,0.35)] ${s.align}`}
                 >
                   <span
                     className="absolute -top-2 left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full border border-[var(--dark)]/10 shadow-sm"
@@ -150,7 +156,7 @@ const SpiralRing = () => (
       borderColor: 'var(--dark)',
       opacity: 0.3,
       background: 'var(--bg)',
-      boxShadow: 'inset 0 1px 1px rgba(45,33,28,0.2)',
+      boxShadow: 'inset 0 1px 1px rgba(37,39,34,0.2)',
     }}
   />
 );

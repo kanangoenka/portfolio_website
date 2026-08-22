@@ -55,6 +55,11 @@ const MenuChapter = () => {
 
   return (
     <section ref={sectionRef} id="work" className="relative py-28 md:py-36 px-6 md:px-14 overflow-x-hidden">
+      {/* a window seat looking out at the pines */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse 55% 40% at 12% 0%, var(--pine), transparent 70%)', opacity: 0.1 }}
+      />
       <div className="coffee-ring absolute top-10 left-[6%] w-28 h-28 pointer-events-none hidden md:block" />
       <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-24 opacity-40 hidden md:block" />
 
@@ -102,7 +107,7 @@ const MenuChapter = () => {
                 else if (info.offset.x > 80) paginate(-1);
               }}
               data-lenis-prevent-touch
-              className="relative rounded-[28px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_30px_60px_-30px_rgba(45,33,28,0.35)] px-5 sm:px-8 md:px-10 lg:px-12 py-6 sm:py-8 md:py-9"
+              className="relative rounded-[28px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_30px_60px_-30px_rgba(37,39,34,0.35)] px-5 sm:px-8 md:px-10 lg:px-12 py-6 sm:py-8 md:py-9"
             >
               <div className="flex items-start gap-4 mb-5">
                 <DishStamp project={project} />
@@ -228,7 +233,7 @@ const MenuSection = ({ number, label, children }) => (
 // tiny bean charm, sized to sit beside the title rather than dominate.
 const DishStamp = ({ project }) => (
   <div
-    className="relative shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 grain shadow-[0_10px_20px_-14px_rgba(45,33,28,0.4)]"
+    className="relative shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden border-2 grain shadow-[0_10px_20px_-14px_rgba(37,39,34,0.4)]"
     style={{
       background: `radial-gradient(circle at 35% 30%, ${project.accent}26, var(--cream) 72%)`,
       borderColor: `${project.accent}40`,

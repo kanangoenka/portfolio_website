@@ -13,6 +13,12 @@ const annotations = [
 const PersonChapter = () => {
   return (
     <section id="person" className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden">
+      {/* a window-lit corner — soft sky wash, like the owner's table sits near the glass */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse 60% 45% at 85% 0%, var(--sky), transparent 70%)', opacity: 0.14 }}
+      />
+
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +67,7 @@ const PersonChapter = () => {
           <div className="wood-grain mt-6 h-2.5 max-w-sm rounded-full" aria-hidden="true" />
 
           {/* a small postcard view, tucked beside the table */}
-          <div className="relative mt-8 max-w-[220px] rounded-xl overflow-hidden border border-[var(--dark)]/10 bg-[var(--cream)] shadow-[0_10px_24px_-16px_rgba(45,33,28,0.3)] hidden sm:block">
+          <div className="relative mt-8 max-w-[220px] rounded-xl overflow-hidden border border-[var(--dark)]/10 bg-[var(--cream)] shadow-[0_10px_24px_-16px_rgba(37,39,34,0.3)] hidden sm:block">
             <Mountains className="w-full h-16" />
             <p className="px-3 py-2 text-[10px] tracking-widest uppercase text-[var(--dark)]/40">Wish you were here</p>
           </div>

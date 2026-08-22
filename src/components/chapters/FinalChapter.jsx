@@ -21,6 +21,12 @@ const links = [
 const FinalChapter = () => {
   return (
     <section id="final" className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden min-h-[100svh] flex flex-col justify-between">
+      {/* evening warmth at the counter */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse 60% 45% at 50% 100%, var(--coral), transparent 70%)', opacity: 0.1 }}
+      />
+
       <div>
         <motion.p
           initial={{ opacity: 0, y: 14 }}
