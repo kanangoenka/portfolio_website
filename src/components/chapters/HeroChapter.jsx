@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
 import { FiArrowRight, FiDownload } from 'react-icons/fi';
 import CoffeeCup from '../magazine/CoffeeCup';
 import CoffeeBeans from '../magazine/CoffeeBeans';
@@ -14,9 +14,25 @@ const easeOut = [0.16, 1, 0.3, 1];
 // site change. See FinalChapter for the matching link.
 const RESUME_DRIVE_URL = 'https://drive.google.com/drive/folders/1xdfQ0hFgEuTqJGr6OQyoEEAug2CRMT2k?usp=sharing';
 
+// A bird drifts across in the distance, occasionally — a tiny echo of
+// the landing page's ambient sky, not a loop that draws attention.
+const Bird = ({ top, delay, duration = 22 }) => (
+  <motion.svg
+    viewBox="0 0 24 12"
+    className="pointer-events-none absolute w-4 h-2 sm:w-5 sm:h-2.5"
+    style={{ top }}
+    initial={{ x: '-8vw', opacity: 0 }}
+    animate={{ x: '30vw', opacity: [0, 0.5, 0.5, 0] }}
+    transition={{ duration, delay, repeat: Infinity, repeatDelay: 14, ease: 'linear' }}
+  >
+    <path d="M0 8 Q6 0 12 6 Q18 0 24 8" fill="none" stroke="var(--dark)" strokeWidth="1.4" strokeLinecap="round" opacity="0.4" />
+  </motion.svg>
+);
+
 const HeroChapter = () => {
   const ref = useRef(null);
   const lenis = useLenis();
+  const prefersReducedMotion = useReducedMotion();
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
   const cupY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const beansY = useTransform(scrollYProgress, [0, 1], [0, 60]);
@@ -24,8 +40,24 @@ const HeroChapter = () => {
 
   return (
     <section id="hero" ref={ref} className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden px-6 md:px-14 pt-24 pb-16">
+      {/* the same sky as the café entrance, continuing overhead */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-[45vh]"
+        style={{ background: 'linear-gradient(180deg, var(--sky) 0%, transparent 100%)', opacity: 0.16 }}
+      />
+      <div
+        className="pointer-events-none absolute top-[6%] left-[8%] w-20 h-20 sm:w-28 sm:h-28 rounded-full"
+        style={{ background: 'radial-gradient(circle, var(--gold), transparent 72%)', opacity: 0.35 }}
+      />
+      {!prefersReducedMotion && (
+        <>
+          <Bird top="14%" delay={1} duration={20} />
+          <Bird top="19%" delay={9} duration={24} />
+        </>
+      )}
+
       {/* window view: mountains on the horizon, cup on the table in front */}
-      <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-[22vh] opacity-50" />
+      <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-[22vh] opacity-60" />
 
       {/* background layer: oversized cup, cropped bottom-right */}
       <motion.div
@@ -58,7 +90,7 @@ const HeroChapter = () => {
         >
           Building things
           <br />
-          with <span className="italic text-[var(--brown)]">care.</span>
+          with <span className="italic text-[var(--coral)]">care.</span>
         </motion.h1>
 
         <motion.p

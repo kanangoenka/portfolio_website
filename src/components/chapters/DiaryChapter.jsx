@@ -49,15 +49,19 @@ const DiaryChapter = () => {
         The Owner&rsquo;s Diary
       </motion.h2>
 
-      {/* the notebook itself */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.7, ease: easeOut }}
-        style={{ rotate: '-0.3deg' }}
-        className="relative max-w-6xl mx-auto rounded-[24px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_40px_70px_-40px_rgba(45,33,28,0.4)] overflow-hidden"
-      >
+      {/* the café table this notebook is resting on */}
+      <div className="relative max-w-6xl mx-auto">
+        <div className="wood-grain absolute -bottom-3 left-4 right-4 h-6 rounded-full opacity-60" aria-hidden="true" />
+
+        {/* the notebook itself */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.7, ease: easeOut }}
+          style={{ rotate: '-0.3deg' }}
+          className="relative rounded-[24px] border border-[var(--dark)]/10 bg-[var(--cream)] grain shadow-[0_40px_70px_-40px_rgba(45,33,28,0.4)] overflow-hidden"
+        >
         <PaperClip className="pointer-events-none absolute -top-5 left-[46%] sm:left-1/2 -translate-x-1/2 z-20 w-9 h-14 sm:w-10 sm:h-16" />
 
         <div
@@ -128,7 +132,8 @@ const DiaryChapter = () => {
             <p className="mt-10 text-[10px] tracking-widest uppercase text-[var(--dark)]/30 text-right">Pg. 06</p>
           </div>
         </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };

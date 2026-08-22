@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import Mountains from '../magazine/Mountains';
 
 const easeOut = [0.16, 1, 0.3, 1];
 
@@ -13,6 +14,7 @@ const ExperienceChapter = () => {
   return (
     <section id="experience" className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden">
       <div className="coffee-ring absolute top-16 right-[10%] w-32 h-32 pointer-events-none hidden md:block" />
+      <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-16 opacity-25 hidden md:block" />
 
       <motion.p
         initial={{ opacity: 0, y: 14 }}
@@ -52,6 +54,13 @@ const ExperienceChapter = () => {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.1 }}
           className="md:col-span-8"
         >
+          <div className="flex items-center gap-2 mb-3" aria-hidden="true">
+            <span className="w-2 h-2 rounded-full" style={{ background: 'var(--coral)' }} />
+            <span className="h-px flex-1 max-w-[64px] border-t border-dashed" style={{ borderColor: 'var(--coral)' }} />
+            <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--coral)' }}>
+              trail marker
+            </span>
+          </div>
           <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[var(--dark)] leading-tight mb-4">
             Software Engineer Intern
           </h3>

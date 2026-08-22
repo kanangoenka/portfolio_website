@@ -5,9 +5,9 @@ import Mountains from '../magazine/Mountains';
 const easeOut = [0.16, 1, 0.3, 1];
 
 const annotations = [
-  { text: 'always experimenting', style: 'top-[6%] -left-6 sm:-left-10 -rotate-6' },
-  { text: 'building things', style: 'top-[42%] -right-4 sm:-right-10 rotate-3' },
-  { text: 'currently learning', style: 'bottom-[4%] left-[8%] -rotate-3' },
+  { text: 'always experimenting', style: 'top-[6%] -left-6 sm:-left-10 -rotate-6', color: 'var(--coral)' },
+  { text: 'building things', style: 'top-[42%] -right-4 sm:-right-10 rotate-3', color: 'var(--pine)' },
+  { text: 'currently learning', style: 'bottom-[4%] left-[8%] -rotate-3', color: 'var(--gold)' },
 ];
 
 const PersonChapter = () => {
@@ -33,6 +33,17 @@ const PersonChapter = () => {
         The Owner
       </motion.h2>
 
+      <motion.span
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.5, delay: 0.15, ease: easeOut }}
+        className="inline-block -mt-10 md:-mt-16 mb-10 md:mb-14 px-3 py-1.5 rounded-full border text-[11px] font-semibold uppercase tracking-widest"
+        style={{ borderColor: '#7FA8C960', color: 'var(--sky)', background: '#7FA8C914' }}
+      >
+        Owner&rsquo;s Corner
+      </motion.span>
+
       <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-10 items-start">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -55,6 +66,9 @@ const PersonChapter = () => {
             <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40 mb-1">2023 — 2027</p>
             <p className="text-xs font-semibold uppercase tracking-wider text-[var(--dark)]/40">CGPA 8.58/10</p>
           </div>
+
+          {/* the counter this card is resting on */}
+          <div className="wood-grain mt-6 h-2.5 max-w-sm rounded-full" aria-hidden="true" />
 
           {/* a small postcard view, tucked beside the table */}
           <div className="relative mt-8 max-w-[220px] rounded-xl overflow-hidden border border-[var(--dark)]/10 bg-[var(--cream)] shadow-[0_10px_24px_-16px_rgba(45,33,28,0.3)] hidden sm:block">
@@ -82,8 +96,8 @@ const PersonChapter = () => {
           {annotations.map((a) => (
             <span
               key={a.text}
-              className={`absolute ${a.style} hidden sm:block text-xl text-[var(--brown)] select-none`}
-              style={{ fontFamily: 'var(--font-hand)', fontWeight: 600 }}
+              className={`absolute ${a.style} hidden sm:block text-xl select-none`}
+              style={{ fontFamily: 'var(--font-hand)', fontWeight: 600, color: a.color }}
             >
               {a.text}
             </span>

@@ -29,7 +29,7 @@ const FinalChapter = () => {
           transition={{ duration: 0.6, ease: easeOut }}
           className="eyebrow mb-6"
         >
-          Chapter 06 — Customize Your Food
+          Chapter 06 — At the Counter
         </motion.p>
 
         <motion.h2
@@ -54,6 +54,8 @@ const FinalChapter = () => {
         </motion.h3>
 
         <p className="eyebrow mb-6">Your Order</p>
+
+        <div className="wood-grain mb-6 h-2 max-w-2xl rounded-full" aria-hidden="true" />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-8 max-w-2xl">
           {links.map((l, i) => (

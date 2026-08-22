@@ -89,9 +89,24 @@ const MenuChapter = () => {
       </motion.p>
 
       <div className="relative max-w-4xl mx-auto">
-        <p className="eyebrow text-center mb-5">Mountain Café — Menu</p>
+        <div className="flex items-center justify-center gap-3 mb-5">
+          <p className="eyebrow">Mountain Café — Menu</p>
+          <span
+            className="hidden sm:flex w-9 h-9 rounded-full border border-dashed items-center justify-center rotate-[-6deg] shrink-0"
+            style={{ borderColor: 'var(--pine)', opacity: 0.6 }}
+            aria-hidden="true"
+          >
+            <span className="text-[6.5px] font-bold uppercase tracking-wide text-center leading-none" style={{ color: 'var(--pine)' }}>
+              Fresh
+              <br />
+              Daily
+            </span>
+          </span>
+        </div>
 
         <div style={{ perspective: 1800 }} className="relative">
+          {/* the café table the menu is resting on */}
+          <div className="wood-grain absolute -bottom-3 left-6 right-6 h-6 rounded-full opacity-50" aria-hidden="true" />
           <AnimatePresence mode="wait" custom={direction}>
             <motion.article
               key={project.id}

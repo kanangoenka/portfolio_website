@@ -38,15 +38,17 @@ const MagazineNav = () => {
 
   return (
     <>
-      {/* Logo mark, top-left */}
+      {/* Logo mark, top-left — a small hanging café sign */}
       <a
         href="#hero"
         onClick={(e) => { e.preventDefault(); jump('hero'); }}
         data-cursor="link"
-        className="fixed top-6 left-6 md:top-8 md:left-8 z-40 text-xl select-none text-[var(--dark)]"
-        style={{ fontFamily: 'var(--font-hand)', fontWeight: 600 }}
+        className="fixed top-6 left-6 md:top-8 md:left-8 z-40 flex flex-col items-center select-none text-[var(--dark)]"
       >
-        Kanan
+        <span className="w-px h-2 bg-[var(--dark)]/20" aria-hidden="true" />
+        <span className="text-xl" style={{ fontFamily: 'var(--font-hand)', fontWeight: 600 }}>
+          Kanan
+        </span>
       </a>
 
       {/* Desktop: fixed chapter dial, right edge */}
@@ -64,8 +66,13 @@ const MagazineNav = () => {
         <button
           onClick={() => setShowIndex((v) => !v)}
           data-cursor="link"
-          className="flex flex-col items-center gap-1 py-3 px-2 rounded-full border border-[var(--dark)]/12 bg-[var(--cream)]/80 backdrop-blur-sm"
+          className="relative flex flex-col items-center gap-1 py-3 px-2 rounded-full border border-[var(--dark)]/12 bg-[var(--cream)]/80 backdrop-blur-sm"
         >
+          <span
+            className="absolute -top-1 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full"
+            style={{ background: 'var(--coral)' }}
+            aria-hidden="true"
+          />
           <span className="text-[11px] font-semibold tabular-nums text-[var(--dark)]">{current.number}</span>
           <span className="w-3.5 h-px bg-[var(--dark)]/25" />
           <span className="text-[11px] font-semibold tabular-nums text-[var(--dark)]/35">
