@@ -58,22 +58,12 @@ const MenuChapter = () => {
       <div className="coffee-ring absolute top-10 left-[6%] w-28 h-28 pointer-events-none hidden md:block" />
       <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-24 opacity-40 hidden md:block" />
 
-      <motion.p
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6, ease: easeOut }}
-        className="eyebrow mb-6"
-      >
-        Chapter 03
-      </motion.p>
-
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.7, ease: easeOut }}
-        className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-4"
+        className="font-serif text-[13vw] sm:text-7xl md:text-8xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-4"
       >
         Menu
       </motion.h2>
@@ -89,22 +79,7 @@ const MenuChapter = () => {
       </motion.p>
 
       <div className="relative max-w-4xl mx-auto">
-        <div className="flex items-center justify-center gap-3 mb-5">
-          <p className="eyebrow">Mountain Café — Menu</p>
-          <span
-            className="hidden sm:flex w-9 h-9 rounded-full border border-dashed items-center justify-center rotate-[-6deg] shrink-0"
-            style={{ borderColor: 'var(--pine)', opacity: 0.6 }}
-            aria-hidden="true"
-          >
-            <span className="text-[6.5px] font-bold uppercase tracking-wide text-center leading-none" style={{ color: 'var(--pine)' }}>
-              Fresh
-              <br />
-              Daily
-            </span>
-          </span>
-        </div>
-
-        <div style={{ perspective: 1800 }} className="relative">
+        <div style={{ perspective: 1800 }} className="relative mt-2">
           {/* the café table the menu is resting on */}
           <div className="wood-grain absolute -bottom-3 left-6 right-6 h-6 rounded-full opacity-50" aria-hidden="true" />
           <AnimatePresence mode="wait" custom={direction}>
@@ -141,7 +116,7 @@ const MenuChapter = () => {
                       </>
                     )}
                   </div>
-                  <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[var(--dark)] tracking-[-0.01em]">
+                  <h3 className="font-serif text-xl sm:text-2xl md:text-3xl text-[var(--dark)] tracking-[-0.01em]">
                     {project.name}
                   </h3>
                   <p className="mt-1.5 text-[14px] sm:text-[15px] text-[var(--dark)]/60 leading-snug">{project.tagline}</p>

@@ -102,9 +102,8 @@ const Cover = ({ onEnter }) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: easeOut }}
-          className="flex items-start justify-between"
+          className="flex items-start justify-end"
         >
-          <span className="eyebrow !text-[var(--pine)]">Mountain Café</span>
           <span className="eyebrow !text-[var(--pine)]">Open Daily · 2026</span>
         </motion.div>
 

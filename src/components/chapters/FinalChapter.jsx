@@ -29,24 +29,15 @@ const FinalChapter = () => {
           transition={{ duration: 0.6, ease: easeOut }}
           className="eyebrow mb-6"
         >
-          Chapter 06 — At the Counter
+          At the Counter
         </motion.p>
 
-        <motion.h2
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-100px' }}
-          transition={{ duration: 0.7, ease: easeOut }}
-          className="font-serif text-[13vw] sm:text-6xl md:text-7xl leading-[0.95] tracking-[-0.02em] text-[var(--dark)]/40 mb-2"
-        >
-          Care for anything else?
-        </motion.h2>
         <motion.h3
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.7, ease: easeOut, delay: 0.08 }}
-          className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.92] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-24"
+          className="font-serif text-[13vw] sm:text-7xl md:text-8xl leading-[0.92] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-24"
         >
           Customize
           <br />

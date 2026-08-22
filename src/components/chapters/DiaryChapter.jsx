@@ -29,22 +29,12 @@ const statements = [
 const DiaryChapter = () => {
   return (
     <section id="diary" className="relative py-28 md:py-36 px-6 md:px-14 overflow-hidden">
-      <motion.p
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6, ease: easeOut }}
-        className="eyebrow mb-6"
-      >
-        Chapter 05
-      </motion.p>
-
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.7, ease: easeOut }}
-        className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-20"
+        className="font-serif text-[13vw] sm:text-7xl md:text-8xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-20"
       >
         The Owner&rsquo;s Diary
       </motion.h2>

@@ -16,22 +16,12 @@ const ExperienceChapter = () => {
       <div className="coffee-ring absolute top-16 right-[10%] w-32 h-32 pointer-events-none hidden md:block" />
       <Mountains className="pointer-events-none absolute bottom-0 left-0 w-full h-16 opacity-25 hidden md:block" />
 
-      <motion.p
-        initial={{ opacity: 0, y: 14 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6, ease: easeOut }}
-        className="eyebrow mb-6"
-      >
-        Chapter 04
-      </motion.p>
-
       <motion.h2
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ duration: 0.7, ease: easeOut }}
-        className="font-serif text-[16vw] sm:text-8xl md:text-9xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-20"
+        className="font-serif text-[13vw] sm:text-7xl md:text-8xl leading-[0.9] tracking-[-0.02em] text-[var(--dark)] mb-16 md:mb-20"
       >
         The Owner&rsquo;s Experience
       </motion.h2>
@@ -54,13 +44,6 @@ const ExperienceChapter = () => {
           transition={{ duration: 0.7, ease: easeOut, delay: 0.1 }}
           className="md:col-span-8"
         >
-          <div className="flex items-center gap-2 mb-3" aria-hidden="true">
-            <span className="w-2 h-2 rounded-full" style={{ background: 'var(--coral)' }} />
-            <span className="h-px flex-1 max-w-[64px] border-t border-dashed" style={{ borderColor: 'var(--coral)' }} />
-            <span className="text-[10px] font-semibold uppercase tracking-widest" style={{ color: 'var(--coral)' }}>
-              trail marker
-            </span>
-          </div>
           <h3 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[var(--dark)] leading-tight mb-4">
             Software Engineer Intern
           </h3>
